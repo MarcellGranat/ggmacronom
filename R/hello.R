@@ -16,3 +16,4 @@
 theme_macronom <- function() {
   print("Hello, world!")
 }
+
