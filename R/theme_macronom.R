@@ -21,7 +21,7 @@ theme_macronom <- function() {
     text = element_text(family = "Roboto"),
     axis.text = element_text(family = "Roboto", size = 12),
     axis.line.y = element_line(colour = "azure4",
-                             size = 1.1, linetype = "solid"),
+                             size = 1.1),
     axis.ticks = element_blank(),
     panel.grid.major.y = element_line(colour = "gainsboro",
                                     size = 0.6),

@@ -52,7 +52,12 @@ p +
   scale_color_manual(values = macronom_colors(1:3)) + 
   scale_y_continuous(labels = function(x) scales::percent(x/100, accuracy = .1, decimal.mark = ",")) + 
   scale_x_date(date_breaks = "3 month") +
-  theme(axis.text.x = element_text(angle = 90))
+  theme(axis.text.x = element_text(angle = 90)) + 
+    guides(
+    color = guide_legend(
+      override.aes = aes(size = 4)
+    )
+  )
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
