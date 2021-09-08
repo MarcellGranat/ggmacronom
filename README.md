@@ -9,7 +9,8 @@ unemployment_df <- eurostat::get_eurostat("ei_lmhr_m")
 
 ``` r
 p <- unemployment_df %>% 
-  filter(s_adj == "SA" & indic %in% c("LM-UN-F-TOT", "LM-UN-M-TOT", "LM-UN-T-TOT"), geo == "HU", time > as.Date("2017-01-01")) %>% 
+  filter(s_adj == "SA" & indic %in% c("LM-UN-F-TOT", "LM-UN-M-TOT", "LM-UN-T-TOT"),
+         geo == "HU", time > as.Date("2017-01-01")) %>% 
   mutate(
     indic = case_when(
       indic == "LM-UN-F-TOT" ~ "Female",
@@ -26,15 +27,21 @@ p <- unemployment_df %>%
 p
 ```
 
+![](README_files/figure-gfm/unnamed-chunk-2-1.svg)<!-- -->
+
 ``` r
 p + theme_macronom()
 ```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.svg)<!-- -->
 
 ``` r
 p + 
   theme_macronom() + 
   scale_color_manual(values = macronom_colors(1:3))
 ```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.svg)<!-- -->
 
 ### Some small manual fixes
 
@@ -47,6 +54,8 @@ p +
   scale_x_date(date_breaks = "3 month") +
   theme(axis.text.x = element_text(angle = 90))
 ```
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
 
 ## Installation
 
