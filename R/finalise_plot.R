@@ -22,11 +22,17 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
 )  {
 
 
-  footer <- grid::grobTree(
-    grid::textGrob(source_name,
-                   x = 0.004, hjust = 0,
-                   gp = grid::gpar(fontsize = 16)),
-    grid::rasterGrob(png::readPNG(file.path(system.file("logos/macronom_logo.png", package = "ggmacronom")))), x = 0.85)
+  if (logo_image_path == "macronom_logo") {
+
+
+    logo_image_path <- file.path(system.file("logos/macronom_logo.png",
+                                             package = "ggmacronom")
+    )
+  }
+
+  footer <- grid::grobTree(grid::textGrob(source_name,
+                                          x = 0.004, hjust = 0, gp = grid::gpar(fontsize = 16)),
+                           grid::rasterGrob(png::readPNG(logo_image_path), x = 0.936))
 
   pieces <- c("subtitle", "title", "caption")
   grob <- ggplot2::ggplotGrob(plot_name)
