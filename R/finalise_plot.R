@@ -17,22 +17,22 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
                            source_name = str_c("Saját szekesztés, ", Sys.Date()),
                            save_filepath = str_c(getwd(), "/plot.svg"),
                            width_pixels = 640, height_pixels = 450,
-                           logo_image_path = "macronom_logo",
+                           # logo_image_path = "macronom_logo",
+                           # TODO UPDATE LATER
                            save = T
 )  {
 
 
-  if (logo_image_path == "macronom_logo") {
-
+  # if (logo_image_path == "macronom_logo") {
 
     logo_image_path <- file.path(system.file("logos/macronom_logo.png",
                                              package = "ggmacronom")
     )
-  }
+  # }
 
   footer <- grid::grobTree(grid::textGrob(source_name,
-                                          x = 0.004, hjust = 0, gp = grid::gpar(fontsize = 16)),
-                           grid::rasterGrob(png::readPNG(logo_image_path), x = 0.936))
+                                          x = 0.05, hjust = 0.1, y = .3, gp = grid::gpar(fontsize = 12, col = "gray30", fontfamily = "Roboto", fontface = "italic")),
+                           grid::rasterGrob(png::readPNG(logo_image_path), x = .85, y = .5,  width = .3))
 
   pieces <- c("subtitle", "title", "caption")
   grob <- ggplot2::ggplotGrob(plot_name)
@@ -43,7 +43,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
 
   plot_grid <- ggpubr::ggarrange(plot_left_aligned, footer,
                                  ncol = 1, nrow = 2,
-                                 heights = c(1, 0.045/(height_pixels/450)))
+                                 heights = c(1, 0.15/(height_pixels/450)))
   grid::grid.draw(plot_grid)
   #save it
   if (save) {
@@ -52,8 +52,6 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
   }
   invisible(plot_grid)
 }
-
-
 
 
 

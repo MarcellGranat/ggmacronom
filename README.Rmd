@@ -7,6 +7,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE, dev = "svg")
 library(tidyverse)
 library(ggmacronom)
+extrafont::loadfonts(device="win")
 ```
 
 ## Usage
@@ -48,7 +49,7 @@ p +
 ### Some small manual fixes
 
 ```{r}
-p + 
+p_pretty <- p + 
   geom_line(size = 1.7) +
   theme_macronom() + 
   scale_color_manual(values = macronom_colors(1:3)) + 
@@ -60,6 +61,14 @@ p +
       override.aes = aes(size = 4)
     )
   )
+
+p_pretty
+```
+
+### Add macronom logo and caption below
+
+```{r}
+finalise_plot(p_pretty, save = F)
 ```
 
 
