@@ -46,7 +46,7 @@ p +
 ### Some small manual fixes
 
 ``` r
-p + 
+p_pretty <- p + 
   geom_line(size = 1.7) +
   theme_macronom() + 
   scale_color_manual(values = macronom_colors(1:3)) + 
@@ -58,9 +58,19 @@ p +
       override.aes = aes(size = 4)
     )
   )
+
+p_pretty
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.svg)<!-- -->
+
+### Add macronom logo and caption below
+
+``` r
+finalise_plot(p_pretty, save = F)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.svg)<!-- -->
 
 ## Installation
 
