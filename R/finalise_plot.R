@@ -17,7 +17,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
                            source_name = str_c("Saját szekesztés, ", Sys.Date()),
                            save_filepath = str_c(getwd(), "/plot.svg"),
                            width_pixels = 640, height_pixels = 450,
-                           logo_image_path = file.path(system.file("data/macronom_logo.png", package = "ggmacronom")),
+                           logo_image_path = "macronom_logo",
                            save = T
 )  {
 
@@ -26,7 +26,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
     grid::textGrob(source_name,
                    x = 0.004, hjust = 0,
                    gp = grid::gpar(fontsize = 16)),
-    grid::rasterGrob(png::readPNG(logo_image_path)), x = 0.85)
+    grid::rasterGrob(png::readPNG(system.file("logos/macronom_logo.png", package = "ggmacronom"))), x = 0.85)
 
   pieces <- c("subtitle", "title", "caption")
   grob <- ggplot2::ggplotGrob(plot_name)
