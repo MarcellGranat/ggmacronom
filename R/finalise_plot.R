@@ -26,7 +26,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
     grid::textGrob(source_name,
                    x = 0.004, hjust = 0,
                    gp = grid::gpar(fontsize = 16)),
-    grid::rasterGrob(png::readPNG(system.file("logos/macronom_logo.png", package = "ggmacronom"))), x = 0.85)
+    grid::rasterGrob(png::readPNG(file.path(system.file("logos/macronom_logo.png", package = "ggmacronom")))), x = 0.85)
 
   pieces <- c("subtitle", "title", "caption")
   grob <- ggplot2::ggplotGrob(plot_name)
