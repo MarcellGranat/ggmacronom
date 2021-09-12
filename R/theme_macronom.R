@@ -14,11 +14,14 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 theme_macronom <- function() {
-  # extrafont::loadfonts(device="win")
+  theme_minimal(base_family = "Roboto") +
   theme(
     plot.title = element_text(family = "Roboto", face = "bold", size = 20,
                               colour = "black", hjust = .5),
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
     text = element_text(family = "Roboto"),
+    axis.line = element_blank(),
     axis.text = element_text(family = "Roboto", size = 12),
     axis.line.y = element_line(colour = "azure4",
                              size = 1.1),
@@ -27,6 +30,8 @@ theme_macronom <- function() {
                                     size = 0.6),
     panel.grid.minor = element_line(linetype = "blank"),
     panel.background = element_rect(fill = NA),
+    strip.text  = element_text(size = 18,
+                               family = "Roboto"),
     legend.text = element_text(size = 18,
                                family = "Roboto"),
     legend.key = element_rect(fill = NA),
