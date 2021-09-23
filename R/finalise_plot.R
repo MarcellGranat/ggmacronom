@@ -19,7 +19,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
                            width_pixels = 640, height_pixels = 450,
                            # logo_image_path = "macronom_logo",
                            # TODO UPDATE LATER
-                           save = T
+                           save = FALSE
 )  {
 
 
