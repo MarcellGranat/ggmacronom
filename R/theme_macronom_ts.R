@@ -14,25 +14,10 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 theme_macronom_ts <- function() {
-  theme_minimal(base_family = "Roboto") +
+  ggmacronom::theme_macronom() +
     theme(
-      plot.title = element_text(family = "Roboto", face = "bold", size = 20,
-                                colour = "black", hjust = .5),
-      plot.title.position = "plot",
-      plot.caption.position = "plot",
-      text = element_text(family = "Roboto"),
-      axis.line = element_blank(),
-      axis.text = element_text(family = "Roboto", size = 12),
-      axis.line.y = element_line(size = 1.1),
-      axis.ticks = element_blank(),
-      panel.grid.major.y = element_line(size = 0.6),
-      panel.grid.minor = element_line(linetype = "blank"),
       panel.background = element_rect(fill = NA),
-      strip.text  = element_text(size = 18,
-                                 family = "Roboto"),
-      legend.text = element_text(size = 18,
-                                 family = "Roboto"),
-      legend.title = element_text(family = "Roboto", size = 14, face = "bold", color = "black"),
-      legend.position = "bottom", legend.direction = "horizontal"
+      panel.grid.minor = element_line(linetype = "blank"),
+      panel.grid.major.y = element_line(size = 0.6)
     )
 }

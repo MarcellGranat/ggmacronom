@@ -17,18 +17,12 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
                            source_name = str_c("Saját szekesztés, ", Sys.Date()),
                            save_filepath = str_c(getwd(), "/plot.svg"),
                            width_pixels = 640, height_pixels = 450,
-                           # logo_image_path = "macronom_logo",
-                           # TODO UPDATE LATER
                            save = FALSE
 )  {
-
-
-  # if (logo_image_path == "macronom_logo") {
 
     logo_image_path <- file.path(system.file("logos/macronom_logo.png",
                                              package = "ggmacronom")
     )
-  # }
 
   footer <- grid::grobTree(grid::textGrob(source_name,
                                           x = 0.05, hjust = 0.1, y = .3, gp = grid::gpar(fontsize = 12, col = "gray30", fontfamily = "Roboto", fontface = "italic")),
@@ -45,7 +39,7 @@ finalise_plot <- function (plot_name = ggplot2::last_plot(),
                                  ncol = 1, nrow = 2,
                                  heights = c(1, 0.15/(height_pixels/450)))
   grid::grid.draw(plot_grid)
-  #save it
+
   if (save) {
     ggplot2::ggsave(filename = save_filepath,
                     plot=plot_grid, width=(width_pixels/72), height=(height_pixels/72))
