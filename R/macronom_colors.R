@@ -13,13 +13,13 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-macronom_colors <- function(x = 1:10, help = FALSE) {
+macronom_colors <- function(x = 1:10) {
 
   mycolors <- c("#000000", "#a39661", "#C8C0A0", "#8f8f8f", "#3d5481", "#e2c153", "#6c86a0", "#6c2111", "#666f50", "#daac92")
   names(mycolors) <- c("black", "brown", "brown60", "grey", "blue", "yellow", "lightblue", "burgundy", "olivia", "powder")
 
-  if (help) {
-    mycolors %>%
+  if (is.null(x)) {
+    p <- mycolors %>%
       enframe() %>%
       mutate(
         c = (row_number() -1) %% 5,
@@ -30,7 +30,15 @@ macronom_colors <- function(x = 1:10, help = FALSE) {
       scale_fill_manual(values = mycolors) +
       geom_text(color = "white", fontface = "bold") +
       theme_void()
-  } else {
-      as.character(mycolors[x])
+
+    return(p)
   }
+
+  if (length(x) == 1) {
+  if (x == "low") return("#D22211") # for gradient values
+  if (x == "high") return("#469240")
+  }
+
+  as.character(mycolors[x])
+
 }

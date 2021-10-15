@@ -13,8 +13,8 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-theme_macronom_ts <- function() {
-  ggmacronom::theme_macronom() +
+theme_macronom_ts <- function(base_size) {
+  ggmacronom::theme_macronom(base_size) +
     theme(
       panel.background = element_rect(fill = NA),
       panel.grid.minor = element_line(linetype = "blank"),
